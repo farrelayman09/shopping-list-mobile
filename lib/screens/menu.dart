@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/widgets/left_drawer.dart';
 import 'package:shopping_list/widgets/shop_card.dart';
-import 'package:shopping_list/screens/shoplist_form.dart';
-
-import 'list_product.dart';
-
-
-
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
+
+  final List<ShopItem> items = [
+    ShopItem("Lihat Produk", Icons.checklist),
+    ShopItem("Tambah Produk", Icons.add_shopping_cart),
+    ShopItem("Logout", Icons.logout),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,9 @@ class MyHomePage extends StatelessWidget {
           'Shopping List',
           style: TextStyle(color: Colors.white),
         ),
-
         backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
       ),
-      // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
       drawer: const LeftDrawer(),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
@@ -64,10 +63,3 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
-
-final List<ShopItem> items = [
-  ShopItem("Lihat Produk", Icons.checklist),
-  ShopItem("Tambah Produk", Icons.add_shopping_cart),
-  ShopItem("Logout", Icons.logout),
-];
